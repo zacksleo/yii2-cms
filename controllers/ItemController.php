@@ -1,6 +1,6 @@
 <?php
 
-namespace app\modules\console\controllers;
+namespace zacksleo\yii2\cms\controllers;
 
 use Yii;
 use app\models\Item;
