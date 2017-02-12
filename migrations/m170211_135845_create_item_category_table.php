@@ -2,7 +2,7 @@
 
 use yii\db\Schema;
 
-class m170211_135845_create_item_category extends \yii\db\Migration
+class m170211_135845_create_item_category_table extends \yii\db\Migration
 {
     public function up()
     {
