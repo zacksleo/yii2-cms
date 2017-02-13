@@ -1,0 +1,24 @@
+<?php
+return [
+    //CRUD
+    'Create' => '新建',
+    'Update' => '更新',
+    'Delete' => '删除',
+    'Are you sure you want to delete this item?' => '你确定要删除此项吗？',
+    'Select Data' => '请选择',
+    //links
+    'Category' => '类型',
+    'Name' => '名称',
+    'Description' => '简介',
+    'Url' => '网址',
+    'Logo' => '图标',
+    'Order' => '序号',
+    'Created At' => '创建时间',
+    'Updated At' => '更新时间',
+    'Links' => '友情链接',
+    //menu
+    'Menus' => '菜单管理',
+    'Title' => '标题',
+    'Parent' => '上级',
+
+];

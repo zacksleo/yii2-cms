@@ -6,12 +6,12 @@ use zacksleo\yii2\cms\Module;
 /* @var $this yii\web\View */
 /* @var $model zacksleo\yii2\cms\models\links */
 
-$this->title = Module::t('links', 'Update', [
+$this->title = Module::t('cms', 'Update', [
         'modelClass' => 'Links',
     ]) . $model->name;
-$this->params['breadcrumbs'][] = ['label' => Yii::t('links', 'Links'), 'url' => ['index']];
+$this->params['breadcrumbs'][] = ['label' => Module::t('cms', 'Links'), 'url' => ['index']];
 $this->params['breadcrumbs'][] = ['label' => $model->name, 'url' => ['view', 'id' => $model->id]];
-$this->params['breadcrumbs'][] = Yii::t('links', 'Update');
+$this->params['breadcrumbs'][] = Module::t('cms', 'Update');
 ?>
 <div class="links-update">
 

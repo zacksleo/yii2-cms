@@ -35,7 +35,7 @@ class Module extends BaseModule
             'sourceLanguage' => 'en-US',
             'basePath' => '@zacksleo/yii2/cms/messages',
             'fileMap' => [
-                'zacksleo/yii2/cms/links' => 'links.php',
+                'zacksleo/yii2/cms/cms' => 'cms.php',
             ],
         ];
     }

@@ -8,7 +8,7 @@ use zacksleo\yii2\cms\Module;
 /* @var $model zacksleo\yii2\cms\models\links */
 
 $this->title = $model->name;
-$this->params['breadcrumbs'][] = ['label' => Module::t('links', 'Links'), 'url' => ['index']];
+$this->params['breadcrumbs'][] = ['label' => Module::t('cms', 'Links'), 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="links-view">

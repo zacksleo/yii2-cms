@@ -7,10 +7,10 @@ use zacksleo\yii2\cms\Module;
 /* @var $this yii\web\View */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
-$this->title = Module::t('cms', 'Links');
+$this->title = Module::t('cms', 'Menus');
 $this->params['breadcrumbs'][] = $this->title;
 ?>
-<div class="links-index">
+<div class="menu-index">
 
     <h1><?= Html::encode($this->title) ?></h1>
 
@@ -23,14 +23,10 @@ $this->params['breadcrumbs'][] = $this->title;
             ['class' => 'yii\grid\SerialColumn'],
 
             'id',
-            'category',
-            'name',
-            'description',
+            'title',
+            'order',
+            'parent',
             'url:url',
-            // 'logo',
-            // 'order',
-            // 'created_at',
-            // 'updated_at',
 
             ['class' => 'yii\grid\ActionColumn'],
         ],
