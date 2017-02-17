@@ -48,14 +48,14 @@ class Links extends \yii\db\ActiveRecord
     {
         return [
             'id' => Module::t('links', 'ID'),
-            'category' => Module::t('links', 'Category'),
-            'name' => Module::t('links', 'Name'),
-            'description' => Module::t('links', 'Description'),
-            'url' => Module::t('links', 'Url'),
-            'logo' => Module::t('links', 'Logo'),
-            'order' => Module::t('links', 'Order'),
-            'created_at' => Module::t('links', 'Created At'),
-            'updated_at' => Module::t('links', 'Updated At'),
+            'category' => Module::t('cms', 'Category'),
+            'name' => Module::t('cms', 'Name'),
+            'description' => Module::t('cms', 'Description'),
+            'url' => Module::t('cms', 'Url'),
+            'logo' => Module::t('cms', 'Logo'),
+            'order' => Module::t('cms', 'Order'),
+            'created_at' => Module::t('cms', 'Created At'),
+            'updated_at' => Module::t('cms', 'Updated At'),
         ];
     }
 
