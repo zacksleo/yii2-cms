@@ -8,7 +8,6 @@ use yii\data\ActiveDataProvider;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
-use yii\helpers\Url;
 
 /**
  * MenuController implements the CRUD actions for Menu model.
@@ -67,7 +66,7 @@ class MenuController extends Controller
         $model = new Menu();
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(Url::to(['menu/view', 'id' => $model->id]));
+            return $this->redirect(['view', 'id' => $model->id]);
         } else {
             return $this->render('create', [
                 'model' => $model,
@@ -86,7 +85,7 @@ class MenuController extends Controller
         $model = $this->findModel($id);
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(Url::to(['menu/view', 'id' => $model->id]));
+            return $this->redirect(['view', 'id' => $model->id]);
         } else {
             return $this->render('update', [
                 'model' => $model,
@@ -104,7 +103,7 @@ class MenuController extends Controller
     {
         $this->findModel($id)->delete();
 
-        return $this->redirect(Url::to(['menu/index']));
+        return $this->redirect(['index']);
     }
 
     /**
