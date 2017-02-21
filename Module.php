@@ -36,6 +36,7 @@ class Module extends BaseModule
             'basePath' => '@zacksleo/yii2/cms/messages',
             'fileMap' => [
                 'zacksleo/yii2/cms/cms' => 'cms.php',
+                'zacksleo/yii2/cms/tree' => 'tree.php',
             ],
         ];
     }

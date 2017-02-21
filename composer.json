@@ -14,7 +14,7 @@
     "pheme/yii2-settings": "dev-master",
     "spanjeta/yii2-backup": "*",
     "bupy7/yii2-pages": "dev-master",
-    "kartik-v/yii2-tree-manager": "dev-master",
+    "kartik-v/yii2-tree-manager": "^1.0",
     "zacksleo/yii2-lookup": "^1.0",
     "zacksleo/yii2-plugin": "^v2.0.0-beta.1",
     "dektrium/yii2-user": "^0.9.12"

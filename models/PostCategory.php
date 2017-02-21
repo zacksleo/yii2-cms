@@ -1,13 +1,11 @@
 <?php
-
 namespace zacksleo\yii2\cms\models;
 
 use kartik\tree\models\Tree;
-use yii;
 use zacksleo\yii2\cms\Module;
 
 /**
- * This is the model class for table "{{%item_category}}".
+ * This is the model class for table "{{%post_category}}".
  *
  * @property integer $id
  * @property integer $root
@@ -30,14 +28,14 @@ use zacksleo\yii2\cms\Module;
  * @property integer $removable
  * @property integer $removable_all
  */
-class ItemCategory extends Tree
+class PostCategory extends Tree
 {
     /**
      * @inheritdoc
      */
     public static function tableName()
     {
-        return '{{%item_category}}';
+        return '{{%post_category}}';
     }
 
     /**
