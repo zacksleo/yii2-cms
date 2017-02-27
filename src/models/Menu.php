@@ -13,6 +13,7 @@ use zacksleo\yii2\cms\Module;
  * @property integer $order
  * @property integer $parent
  * @property string $url
+ * @property array $children
  */
 class Menu extends \yii\db\ActiveRecord
 {
@@ -49,5 +50,13 @@ class Menu extends \yii\db\ActiveRecord
             'parent' => Module::t('cms', 'Parent'),
             'url' => Module::t('cms', 'Url'),
         ];
+    }
+
+    /**
+     * @return \yii\db\ActiveQuery
+     */
+    public function getChildren()
+    {
+        return $this->hasMany(self::className(), ['parent' => 'id'])->orderBy('order');
     }
 }
