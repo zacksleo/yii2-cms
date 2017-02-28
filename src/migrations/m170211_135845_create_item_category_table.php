@@ -38,6 +38,7 @@ class m170211_135845_create_item_category_table extends \yii\db\Migration
         $this->createIndex('tree_NK3', '{{%item_category}}', 'rgt');
         $this->createIndex('tree_NK4', '{{%item_category}}', 'lvl');
         $this->createIndex('tree_NK5', '{{%item_category}}', 'active');
+        return true;
     }
 
     public function down()
@@ -51,5 +52,6 @@ class m170211_135845_create_item_category_table extends \yii\db\Migration
         $this->dropTable('{{%order_item}}');
         $this->dropTable('{{%order_payment}}');
         $this->dropTable('{{%user_guide}}');
+        return true;
     }
 }

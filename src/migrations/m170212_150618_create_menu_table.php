@@ -23,6 +23,7 @@ class m170212_150618_create_menu_table extends Migration
             'parent' => $this->integer()->notNull()->defaultValue(0),
             'url' => $this->string()->notNull(),
         ], $tableOptions);
+        return true;
     }
 
     /**
@@ -31,5 +32,6 @@ class m170212_150618_create_menu_table extends Migration
     public function down()
     {
         $this->dropTable('menu');
+        return true;
     }
 }

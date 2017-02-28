@@ -28,6 +28,7 @@ class m170212_062736_create_links_table extends Migration
             'created_at' => $this->integer()->unsigned()->notNull(),
             'updated_at' => $this->integer()->unsigned()->notNull(),
         ], $tableOptions);
+        return true;
     }
 
     /**
@@ -36,5 +37,6 @@ class m170212_062736_create_links_table extends Migration
     public function down()
     {
         $this->dropTable('links');
+        return true;
     }
 }

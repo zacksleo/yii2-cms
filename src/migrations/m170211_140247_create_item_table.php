@@ -23,10 +23,12 @@ class m170211_140247_create_item_table extends \yii\db\Migration
             'created_at' => Schema::TYPE_INTEGER . ' NOT NULL COMMENT "创建时间"',
             'updated_at' => Schema::TYPE_INTEGER . ' NOT NULL COMMENT "更新时间"',
         ], 'CHARACTER SET utf8 COLLATE utf8_general_ci ENGINE=InnoDB COMMENT="管理员表"');
+        return true;
     }
 
     public function down()
     {
         $this->dropTable('{{%item}}');
+        return true;
     }
 }

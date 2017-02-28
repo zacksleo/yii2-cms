@@ -24,6 +24,7 @@ class m170220_153917_create_post_table extends Migration
             'created_at' => $this->integer()->notNull(),
             'updated_at' => $this->integer()->notNull(),
         ]);
+        return true;
     }
 
     /**
@@ -32,5 +33,6 @@ class m170220_153917_create_post_table extends Migration
     public function down()
     {
         $this->dropTable('{{%post}}');
+        return true;
     }
 }

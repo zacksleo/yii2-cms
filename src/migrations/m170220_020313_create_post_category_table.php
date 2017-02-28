@@ -35,6 +35,7 @@ class m170220_020313_create_post_category_table extends Migration
             'removable_all' => $this->boolean()->notNull()->defaultValue(false),
             'slug' => $this->string()->notNull(),
         ]);
+        return true;
     }
 
     /**
@@ -43,5 +44,6 @@ class m170220_020313_create_post_category_table extends Migration
     public function down()
     {
         $this->dropTable('{{%post_category}}');
+        return true;
     }
 }
