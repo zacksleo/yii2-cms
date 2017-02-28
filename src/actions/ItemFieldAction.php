@@ -1,10 +1,10 @@
 <?php
-namespace pheme\settings;
+namespace zacksleo\yii2\cms\actions;
 
 use Yii;
 use yii\base\Action;
 
-class SettingsAction extends Action
+class ItemFieldAction extends Action
 {
     /**
      * @var string class name of the model which will be used to validate the attributes.
@@ -22,7 +22,7 @@ class SettingsAction extends Action
     /**
      * @var string the name of the view to generate the form. Defaults to 'settings'.
      */
-    public $viewName = 'settings';
+    public $viewName = 'item-field';
 
     /**
      * Render the settings form.
@@ -36,10 +36,10 @@ class SettingsAction extends Action
         }
         if ($model->load(Yii::$app->request->post()) && $model->validate()) {
             foreach ($model->toArray() as $key => $value) {
-                Yii::$app->settings->set($key, $value, $model->formName());
+                Yii::$app->itemField->set($key, $value, $model->formName());
             }
             Yii::$app->getSession()->addFlash('success',
-                Module::t('settings', 'Successfully saved settings on {section}',
+                Module::t('cms', 'Successfully saved settings',
                     ['section' => $model->formName()]
                 )
             );

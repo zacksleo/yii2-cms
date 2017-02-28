@@ -107,7 +107,7 @@ class Setting extends ActiveRecord
     {
         $validators = $this->getTypes(false);
         if (!array_key_exists($this->type, $validators)) {
-            $this->addError('type', Module::t('settings', 'Please select correct type'));
+            $this->addError('type', Module::t('cms', 'Please select correct type'));
             return false;
         }
 
@@ -134,7 +134,7 @@ class Setting extends ActiveRecord
      */
     public function getSettings()
     {
-        $settings = static::find()->where(['active' => true])->asArray()->all();
+        $settings = static::find()->asArray()->all();
         return array_merge_recursive(
             ArrayHelper::map($settings, 'key', 'value', 'item_id'),
             ArrayHelper::map($settings, 'key', 'type', 'item_id')
@@ -181,7 +181,7 @@ class Setting extends ActiveRecord
      */
     public function deleteSetting($item_id, $key)
     {
-        $model = static::findOne(['section' => $item_id, 'key' => $key]);
+        $model = static::findOne(['item_id' => $item_id, 'key' => $key]);
 
         if ($model) {
             return $model->delete();
@@ -190,27 +190,12 @@ class Setting extends ActiveRecord
     }
 
     /**
-     * @inheritdoc
+     * @param $key
+     * @param $item_id
+     * @return array|null|ActiveRecord
      */
-    public function deleteAllSettings()
+    public function findSetting($key, $item_id)
     {
-        return static::deleteAll();
-    }
-
-    /**
-     * @inheritdoc
-     */
-    public function findSetting($key, $item_id = null)
-    {
-        if (is_null($item_id)) {
-            $pieces = explode('.', $key, 2);
-            if (count($pieces) > 1) {
-                $item_id = $pieces[0];
-                $key = $pieces[1];
-            } else {
-                $item_id = '';
-            }
-        }
-        return $this->find()->where(['section' => $item_id, 'key' => $key])->limit(1)->one();
+        return $this->find()->where(['item_id' => $item_id, 'key' => $key])->limit(1)->one();
     }
 }

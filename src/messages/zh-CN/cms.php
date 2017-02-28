@@ -21,4 +21,11 @@ return [
     'Title' => '标题',
     'Parent' => '上级',
 
+    'Type' => '类型',
+    'Item ID' => '产品',
+    'Key' => '字段',
+    'Value' => '值',
+
+    'Please select correct type' => '请选择正确的类型',
+    'Successfully saved settings' => '保存成功',
 ];
