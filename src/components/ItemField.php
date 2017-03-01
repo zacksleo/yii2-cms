@@ -1,11 +1,5 @@
 <?php
 
-/**
- * @link http://phe.me
- * @copyright Copyright (c) 2014 Pheme
- * @license MIT http://opensource.org/licenses/MIT
- */
-
 namespace zacksleo\yii2\cms\components;
 
 use yii\base\Component;
