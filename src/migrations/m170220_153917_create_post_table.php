@@ -12,6 +12,10 @@ class m170220_153917_create_post_table extends Migration
      */
     public function up()
     {
+        $tableOptions = null;
+        if ($this->db->driverName === 'mysql') {
+            $tableOptions = 'CHARACTER SET utf8 COLLATE utf8_general_ci ENGINE=InnoDB';
+        }
         $this->createTable('{{%post}}', [
             'id' => $this->primaryKey(),
             'title' => $this->string()->notNull(),
@@ -23,7 +27,7 @@ class m170220_153917_create_post_table extends Migration
             'category_id' => $this->integer()->notNull(),
             'created_at' => $this->integer()->notNull(),
             'updated_at' => $this->integer()->notNull(),
-        ]);
+        ], $tableOptions);
         return true;
     }
 

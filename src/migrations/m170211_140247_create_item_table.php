@@ -22,7 +22,7 @@ class m170211_140247_create_item_table extends \yii\db\Migration
             'status' => Schema::TYPE_BOOLEAN . ' NOT NULL DEFAULT 1 COMMENT "状态"',
             'created_at' => Schema::TYPE_INTEGER . ' NOT NULL COMMENT "创建时间"',
             'updated_at' => Schema::TYPE_INTEGER . ' NOT NULL COMMENT "更新时间"',
-        ], 'CHARACTER SET utf8 COLLATE utf8_general_ci ENGINE=InnoDB COMMENT="管理员表"');
+        ], $tableOptions);
         return true;
     }
 

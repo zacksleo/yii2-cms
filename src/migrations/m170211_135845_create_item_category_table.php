@@ -43,15 +43,7 @@ class m170211_135845_create_item_category_table extends \yii\db\Migration
 
     public function down()
     {
-        $this->dropTable('{{%user}}');
-        $this->dropTable('{{%admin}}');
         $this->dropTable('{{%item_category}}');
-        $this->dropTable('{{%item}}');
-        $this->dropTable('{{%payment_type}}');
-        $this->dropTable('{{%order}}');
-        $this->dropTable('{{%order_item}}');
-        $this->dropTable('{{%order_payment}}');
-        $this->dropTable('{{%user_guide}}');
         return true;
     }
 }

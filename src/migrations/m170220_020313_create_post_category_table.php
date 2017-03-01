@@ -12,6 +12,10 @@ class m170220_020313_create_post_category_table extends Migration
      */
     public function up()
     {
+        $tableOptions = null;
+        if ($this->db->driverName === 'mysql') {
+            $tableOptions = 'CHARACTER SET utf8 COLLATE utf8_general_ci ENGINE=InnoDB';
+        }
         $this->createTable('{{%post_category}}', [
             'id' => $this->primaryKey(),
             'root' => $this->integer(),
@@ -34,7 +38,7 @@ class m170220_020313_create_post_category_table extends Migration
             'removable' => $this->boolean()->notNull()->defaultValue(true),
             'removable_all' => $this->boolean()->notNull()->defaultValue(false),
             'slug' => $this->string()->notNull(),
-        ]);
+        ], $tableOptions);
         return true;
     }
 
