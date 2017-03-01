@@ -17,14 +17,14 @@ use Yii;
  * @property integer $created_at
  * @property integer $updated_at
  */
-class News extends \yii\db\ActiveRecord
+class Post extends \yii\db\ActiveRecord
 {
     /**
      * @inheritdoc
      */
     public static function tableName()
     {
-        return '{{%news}}';
+        return '{{%post}}';
     }
 
     /**
