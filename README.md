@@ -1,7 +1,7 @@
 # yii2-cms
-yii2 cms
 
-the Project is in development 
+> the Project is in development 
+## 基于 Yii2 的 CMS 系统
 
 - [x] yii2-cms
   - [x] Item & ItemCategory  产品和产品类别栏目
