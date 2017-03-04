@@ -13,3 +13,4 @@ the Project is in development
 - [x] yii2-ad    广告
 - [x] yii2-gallery  图库
 - [ ] item-field  产品字段
+- [x] 通用后台框架
