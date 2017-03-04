@@ -13,4 +13,6 @@ the Project is in development
 - [x] yii2-ad    广告
 - [x] yii2-gallery  图库
 - [ ] item-field  产品字段
-- [x] 通用后台框架
+- [x] 通用后台框架，默认使用 Metronic 主题
+- [x] 插件模块
+- [x] 使用 composer 管理依赖模块和多主题
