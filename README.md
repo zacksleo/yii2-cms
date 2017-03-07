@@ -21,6 +21,49 @@
 
 ### install by composer
 
+```
+   composer require zacksleo/yii2-cms
+   
+```
 ### migration
 
+```
+
+   yii migrate/up --migrationPath=@vendor/zacksleo/yii2-cms/migrations
+
+```
+
 ### component
+
+```
+
+'component'=>[
+        
+    'user' => [
+        'identityClass' => 'zacksleo\yii2\backend\models\Admin',
+        'enableAutoLogin' => true,
+        'loginUrl' => ['site/login'],
+        'identityCookie' => ['name' => '_identity-backend', 'httpOnly' => true, 'path' => '/admin'],
+    ],
+    'cache' => [
+        'class' => 'yii\caching\ApcCache',
+        'useApcu' => true,
+    ],
+    'settings' => [
+        'class' => 'pheme\settings\components\Settings',
+    ],
+    'plugin' => [
+        'class' => 'zacksleo\yii2\plugin\components.HookRender'
+    ],
+    'authManager' => [
+        'class' => 'yii\rbac\PhpManager',
+    ],
+    'as access' => [
+        'class' => 'mdm\admin\components\AccessControl',
+        'allowActions' => [
+            'admin/*'
+        ]
+    ]
+]
+
+```
