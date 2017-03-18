@@ -56,5 +56,4 @@ class Module extends BaseModule
     {
         return Yii::t('zacksleo/yii2/cms/' . $category, $message, $params, $language);
     }
-
 }

@@ -17,7 +17,7 @@ use yii\base\InvalidParamException;
  * @property string $value
  * @property integer $item_id
  */
-class Setting extends ActiveRecord
+class ItemField extends ActiveRecord
 {
     /**
      * @inheritdoc

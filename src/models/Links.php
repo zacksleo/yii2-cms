@@ -70,5 +70,4 @@ class Links extends \yii\db\ActiveRecord
             ],
         ];
     }
-
 }

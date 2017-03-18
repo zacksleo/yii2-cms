@@ -16,4 +16,4 @@ echo \kartik\tree\TreeView::widget([
     'softDelete' => true,
     'cacheSettings' => ['enableCache' => true],
 ]);
-?>
+

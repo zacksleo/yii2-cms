@@ -12,7 +12,6 @@ class m170212_062736_create_links_table extends Migration
      */
     public function up()
     {
-
         $tableOptions = null;
         if ($this->db->driverName === 'mysql') {
             $tableOptions = 'CHARACTER SET utf8 COLLATE utf8_general_ci ENGINE=InnoDB';

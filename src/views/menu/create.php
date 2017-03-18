@@ -3,7 +3,6 @@
 use yii\helpers\Html;
 use zacksleo\yii2\cms\Module;
 
-
 /* @var $this yii\web\View */
 /* @var $model zacksleo\yii2\cms\models\Menu */
 

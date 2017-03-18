@@ -103,5 +103,4 @@ class PostCategory extends Tree
             'removable_all' => Module::t('tree', 'Removable Along With Descendants'),
         ];
     }
-
 }
