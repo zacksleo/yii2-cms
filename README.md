@@ -1,4 +1,8 @@
-# yii2-cms
+# yii2 cms
+
+[![Latest Stable Version](https://poser.pugx.org/zacksleo/yii2-cms/version)](https://packagist.org/packages/zacksleo/yii2-cms)
+[![Total Downloads](https://poser.pugx.org/zacksleo/yii2-cms/downloads)](https://packagist.org/packages/zacksleo/yii2-cms)
+[![License](https://poser.pugx.org/zacksleo/yii2-cms/license)](https://packagist.org/packages/zacksleo/yii2-cms)
 
 > the Project is in development 
 ## 基于 Yii2 的 CMS 系统
