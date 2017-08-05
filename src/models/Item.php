@@ -1,6 +1,6 @@
 <?php
 
-namespace app\models;
+namespace zacksleo\yii2\cms\models;
 
 use Yii;
 use yii\behaviors\TimestampBehavior;
@@ -76,16 +76,6 @@ class Item extends \yii\db\ActiveRecord
                 'class' => TimestampBehavior::className(),
             ],
         ];
-    }
-
-
-    /**
-     * @inheritdoc
-     * @return \app\models\queries\ItemQuery the active query used by this AR class.
-     */
-    public static function find()
-    {
-        return new \app\models\queries\ItemQuery(get_called_class());
     }
 
     /**

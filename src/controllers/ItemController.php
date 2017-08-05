@@ -3,7 +3,7 @@
 namespace zacksleo\yii2\cms\controllers;
 
 use Yii;
-use app\models\Item;
+use zacksleo\yii2\cms\models\Item;
 use yii\data\ActiveDataProvider;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
