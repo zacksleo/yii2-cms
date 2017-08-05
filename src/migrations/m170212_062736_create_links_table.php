@@ -35,7 +35,7 @@ class m170212_062736_create_links_table extends Migration
      */
     public function down()
     {
-        $this->dropTable('links');
+        $this->dropTable('{{%links}}');
         return true;
     }
 }
