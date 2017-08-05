@@ -2,7 +2,7 @@
 use zacksleo\yii2\cms\models\ItemCategory;
 
 Yii::$app->getModule('treemanager')->treeViewSettings = [
-    'nodeView' => '@vendor/zacksleo/yii2-cms/views/item-category/_form'
+    'nodeView' => '@vendor/zacksleo/yii2-cms/src/views/item-category/_form'
 ];
 Yii::$app->getModule('treemanager')->init();
 
