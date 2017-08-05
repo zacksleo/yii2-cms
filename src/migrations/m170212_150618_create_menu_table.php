@@ -31,7 +31,7 @@ class m170212_150618_create_menu_table extends Migration
      */
     public function down()
     {
-        $this->dropTable('menu');
+        $this->dropTable('{{%menu}}');
         return true;
     }
 }
