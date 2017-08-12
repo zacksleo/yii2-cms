@@ -47,20 +47,24 @@ if ($module->uploadFile) {
 
     <?= $form->field($model, 'item_name')->textInput(['maxlength' => true]) ?>
 
-    <?= $form->field($model, 'category_id')->dropDownList(ArrayHelper::map(ItemCategory::find()->all(), 'id', 'name')) ?>
+    <?= $form->field($model, 'subtitle')->textInput(['maxlength' => true]) ?>
+
+    <?= $form->field($model, 'category_id')->dropDownList(ArrayHelper::map(ItemCategory::find()->all(), 'id',
+        'name')) ?>
 
     <?= $form->field($model, 'market_price')->textInput(['maxlength' => true]) ?>
 
     <?= $form->field($model, 'price')->textInput() ?>
 
     <?php echo $form->field($model, 'description')->widget(Imperavi::className(), [
-    'settings' => $settings,
-    ]);?>
+        'settings' => $settings,
+    ]); ?>
 
     <?= $form->field($model, 'status')->textInput() ?>
 
     <div class="form-group">
-        <?= Html::submitButton($model->isNewRecord ? 'Create' : 'Update', ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary']) ?>
+        <?= Html::submitButton($model->isNewRecord ? 'Create' : 'Update',
+            ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary']) ?>
     </div>
 
     <?php ActiveForm::end(); ?>
