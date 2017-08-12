@@ -3,7 +3,7 @@
 use yii\helpers\Html;
 use yii\helpers\ArrayHelper;
 use yii\widgets\ActiveForm;
-use app\models\ItemCategory;
+use zacksleo\yii2\cms\models\ItemCategory;
 use vova07\imperavi\Widget as Imperavi;
 use yii\helpers\Url;
 
