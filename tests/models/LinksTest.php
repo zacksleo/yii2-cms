@@ -1,6 +1,6 @@
 <?php
 
-namespace zacksleo\yii2\cms\tests\models;
+namespace tests\models;
 
 use zacksleo\yii2\cms\models\Links;
 use tests\TestCase;
