@@ -23,5 +23,9 @@
     "psr-4": {
       "zacksleo\\yii2\\cms\\": "src"
     }
+  },
+  "asset-packagist": {
+    "type": "composer",
+    "url": "https://asset-packagist.org"
   }
 }

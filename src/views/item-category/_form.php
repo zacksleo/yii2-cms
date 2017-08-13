@@ -74,7 +74,7 @@ $glue = ArrayHelper::getValue($breadcrumbs, 'glue');
 $activeCss = ArrayHelper::getValue($breadcrumbs, 'activeCss');
 $untitled = ArrayHelper::getValue($breadcrumbs, 'untitled');
 $name = $node->getBreadcrumbs($depth, $glue, $activeCss, $untitled);
-if ($node->isNewRecord && !empty($parentKey) && $parentKey !== 'root') {
+if ($node->isNewRecord && !empty($parentKey) && $parentKey !== TreeView::ROOT_KEY) {
     /**
      * @var Tree $modelClass
      * @var Tree $parent
