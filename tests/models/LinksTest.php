@@ -3,7 +3,7 @@
 namespace zacksleo\yii2\cms\tests\models;
 
 use zacksleo\yii2\cms\models\Links;
-use zacksleo\yii2\lookup\tests\TestCase;
+use zacksleo\yii2\cms\tests\TestCase;
 
 class LinksTest extends TestCase
 {
