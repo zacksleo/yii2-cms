@@ -13,9 +13,14 @@ cache:
     - $HOME/.composer/cache
     - vendor
 
-before_script:
-  - composer self-update && composer --version
+install:
+  - travis_retry composer self-update
+  - composer config -g github-oauth.github.com dcb6b0049723eb6f56039b2d6389ac76eb29e352
   - travis_retry composer install --prefer-dist --no-interaction
+
+before_script:
+  - travis_retry composer self-update
+  - travis_retry composer install --no-interaction --prefer-source --dev
 
 script:
 - "./vendor/bin/phpunit --coverage-text --coverage-clover=coverage.clover"
