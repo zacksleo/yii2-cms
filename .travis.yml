@@ -15,7 +15,7 @@ cache:
 
 before_script:
   - composer self-update && composer --version
-  - composer install --prefer-dist --no-interaction
+  - travis_retry composer install --prefer-dist --no-interaction
 
 script:
 - "./vendor/bin/phpunit --coverage-text --coverage-clover=coverage.clover"
