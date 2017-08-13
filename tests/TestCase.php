@@ -66,6 +66,9 @@ class TestCase extends \PHPUnit\Framework\TestCase
                 'cms' => [
                     'class' => 'zacksleo\yii2\cms\Module',
                 ],
+                'treemanager' => [
+                    'class' => '\kartik\tree\Module',
+                ]
             ],
         ], $config));
     }
