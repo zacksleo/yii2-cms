@@ -13,8 +13,6 @@ class PostTest extends TestCase
         $this->assertTrue($model->isAttributeRequired('title'));
         $this->assertTrue($model->isAttributeRequired('content'));
         $this->assertTrue($model->isAttributeRequired('active'));
-        $this->assertTrue($model->isAttributeRequired('created_at'));
-        $this->assertTrue($model->isAttributeRequired('updated_at'));
         $model->title = 'title';
         $model->content = 'content';
         $model->active = 0;
