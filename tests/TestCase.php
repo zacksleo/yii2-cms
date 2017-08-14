@@ -110,6 +110,13 @@ class TestCase extends \PHPUnit\Framework\TestCase
             'updatedAt' => 'integer not null',
         ])->execute();
 
+        $db->createCommand()->createTable('menu', [
+            'id' => 'pk',
+            'title' => 'string not null',
+            'order' => 'smallint',
+            'parent' => 'integer not null default 0',
+            'url' => 'string not null',
+        ])->execute();
         // Data :
 
         $db->createCommand()->batchInsert('menu', [
