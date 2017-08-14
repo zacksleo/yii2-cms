@@ -5,6 +5,7 @@ namespace tests;
 use Yii;
 use yii\helpers\ArrayHelper;
 use yii\helpers\FileHelper;
+use yii\db\Schema;
 
 /**
  * This is the base class for all yii framework unit tests.
@@ -97,7 +98,41 @@ class TestCase extends \PHPUnit\Framework\TestCase
         $db = Yii::$app->getDb();
 
         // Structure :
-
+        $db->createCommand()->createTable('item', [
+            'id' => 'pk',
+            'item_name' => 'string(125) not null',
+            'subtitle' => 'string(125) not null',
+            'category_id' => 'integer not null',
+            'market_price' => 'decimal(10,2) not null default 0',
+            'price' => 'integer not null default 0',
+            'description' => 'text not null',
+            'logo_image' => 'string not null',
+            'status' => 'boolean not null default 1',
+            'created_at' => 'integer not null',
+            'updated_at' => 'integer not null',
+        ]);
+        $db->createCommand()->createTable('item_category', [
+            'id' => 'pk',
+            'root' => 'integer',
+            'lft' => 'integer not null',
+            'rgt' => 'integer not null',
+            'lvl' => 'smallint not null',
+            'name' => 'string(60) not null',
+            'icon' => 'string(255)',
+            'icon_type' => 'smallint not null default 1',
+            'active' => 'boolean not null default true',
+            'selected' => 'boolean not null default false',
+            'disabled' => 'boolean not null default false',
+            'readonly' => 'boolean not null default false',
+            'visible' => 'boolean not null default true',
+            'collapsed' => 'boolean not null default false',
+            'movable_u' => 'boolean not null default true',
+            'movable_d' => 'boolean not null default true',
+            'movable_l' => 'boolean not null default true',
+            'movable_r' => 'boolean not null default true',
+            'removable' => 'boolean not null default true',
+            'removable_all' => 'boolean not null default false',
+        ]);
         $db->createCommand()->createTable('links', [
             'id' => 'pk',
             'category' => 'string',

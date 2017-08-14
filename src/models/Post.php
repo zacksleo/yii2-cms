@@ -3,6 +3,7 @@
 namespace zacksleo\yii2\cms\models;
 
 use Yii;
+use yii\behaviors\TimestampBehavior;
 
 /**
  * This is the model class for table "{{%news}}".
@@ -33,7 +34,7 @@ class Post extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['title', 'content', 'active', 'created_at', 'updated_at'], 'required'],
+            [['title', 'content', 'active'], 'required'],
             [['content'], 'string'],
             [['active', 'visits', 'created_at', 'updated_at'], 'integer'],
             [['title', 'image', 'source'], 'string', 'max' => 255],
@@ -55,6 +56,18 @@ class Post extends \yii\db\ActiveRecord
             'visits' => Yii::t('cms', 'Visits'),
             'created_at' => Yii::t('cms', 'Created At'),
             'updated_at' => Yii::t('cms', 'Updated At'),
+        ];
+    }
+
+    /**
+     * @inheritdoc
+     */
+    public function behaviors()
+    {
+        return [
+            'timestamp' => [
+                'class' => TimestampBehavior::className(),
+            ],
         ];
     }
 }
