@@ -18,6 +18,7 @@ class ItemTest extends TestCase
         $model->subtitle = 'subtitle';
         $model->category_id = '1';
         $model->description = 'description';
+        $model->logo_image = 'logo image';
         $this->assertTrue($model->save());
     }
 }

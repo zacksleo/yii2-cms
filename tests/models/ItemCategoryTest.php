@@ -14,12 +14,8 @@ class ItemCategoryTest extends TestCase
         $this->assertTrue($model->isAttributeRequired('rgt'));
         $this->assertTrue($model->isAttributeRequired('lvl'));
         $this->assertTrue($model->isAttributeRequired('name'));
-        $model->lft = '1';
-        $model->rgt = '1';
-        $model->lvl = '0';
         $model->name = 'name';
-        $model->icon = 'icon';
-        $this->assertTrue($model->save());
+        $this->assertTrue($model->makeRoot());
         $this->assertArrayHasKey('active', $model->getAttributes());
     }
 }

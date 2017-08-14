@@ -152,6 +152,18 @@ class TestCase extends \PHPUnit\Framework\TestCase
             'parent' => 'integer not null default 0',
             'url' => 'string not null',
         ])->execute();
+        $db->createCommand()->createTable('post', [
+            'id' => 'pk',
+            'title' => 'string not null',
+            'image' => 'string',
+            'content' => 'text not null',
+            'active' => 'boolean not null',
+            'source' => 'string',
+            'visits' => 'smallint',
+            'category_id' => 'integer not null',
+            'created_at' => 'integer not null',
+            'updated_at' => 'integer not null',
+        ]);
         // Data :
 
         $db->createCommand()->batchInsert('menu', [
