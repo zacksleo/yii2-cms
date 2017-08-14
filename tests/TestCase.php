@@ -110,7 +110,7 @@ class TestCase extends \PHPUnit\Framework\TestCase
             'status' => 'boolean not null default 1',
             'created_at' => 'integer not null',
             'updated_at' => 'integer not null',
-        ]);
+        ])->execute();
         $db->createCommand()->createTable('item_category', [
             'id' => 'pk',
             'root' => 'integer',
@@ -132,7 +132,7 @@ class TestCase extends \PHPUnit\Framework\TestCase
             'movable_r' => 'boolean not null default true',
             'removable' => 'boolean not null default true',
             'removable_all' => 'boolean not null default false',
-        ]);
+        ])->execute();
         $db->createCommand()->createTable('links', [
             'id' => 'pk',
             'category' => 'string',
