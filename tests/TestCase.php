@@ -106,8 +106,8 @@ class TestCase extends \PHPUnit\Framework\TestCase
             'url' => 'string not null',
             'logo' => 'string',
             'order' => 'smallint not null default 0',
-            'createdAt' => 'integer not null',
-            'updatedAt' => 'integer not null',
+            'created_at' => 'integer not null',
+            'updated_at' => 'integer not null',
         ])->execute();
 
         $db->createCommand()->createTable('menu', [
@@ -142,7 +142,7 @@ class TestCase extends \PHPUnit\Framework\TestCase
                 'parent' => 1,
                 'url' => 'https://lianluo.com',
             ],
-        ]);
+        ])->execute();
     }
 
     /**
