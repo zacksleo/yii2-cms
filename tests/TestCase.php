@@ -109,6 +109,33 @@ class TestCase extends \PHPUnit\Framework\TestCase
             'createdAt' => 'integer not null',
             'updatedAt' => 'integer not null',
         ])->execute();
+
+        // Data :
+
+        $db->createCommand()->batchInsert('menu', [
+            'id', 'title', 'order', 'parent', 'url',
+        ], [
+            [
+                'id' => 1,
+                'title' => 'home',
+                'order' => 1,
+                'parent' => 0,
+                'url' => 'https://lianluo.com',
+            ],
+            [
+                'id' => 2,
+                'title' => 'catalog',
+                'order' => 1,
+                'parent' => 1,
+                'url' => 'https://lianluo.com',
+            ], [
+                'id' => 3,
+                'title' => 'catalog2',
+                'order' => 2,
+                'parent' => 1,
+                'url' => 'https://lianluo.com',
+            ],
+        ]);
     }
 
     /**

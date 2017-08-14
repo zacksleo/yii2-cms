@@ -13,4 +13,18 @@ class LinksTest extends TestCase
         $this->assertTrue($model->isAttributeRequired('name'));
         $this->assertTrue($model->isAttributeRequired('url'));
     }
+
+    public function testSave()
+    {
+        $model = new Links();
+        $model->name = 'name';
+        $model->url = 'url';
+        $model->order = 'order';
+        $this->assertFalse($model->validate());
+        $model->order = 0;
+        $this->assertTrue($model->validate());
+        $this->assertTrue($model->save());
+        $this->assertInternalType('integer', $model->created_at);
+        $this->assertInternalType('integer', $model->updated_at);
+    }
 }
