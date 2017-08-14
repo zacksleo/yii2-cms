@@ -16,6 +16,8 @@ class PostTest extends TestCase
         $model->title = 'title';
         $model->content = 'content';
         $model->active = 0;
+        $model->category_id = 1;
+        $model->categories = '1,2,3,4';
         $this->assertTrue($model->save());
     }
 }

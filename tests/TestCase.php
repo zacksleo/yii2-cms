@@ -160,7 +160,8 @@ class TestCase extends \PHPUnit\Framework\TestCase
             'active' => 'boolean not null',
             'source' => 'string',
             'visits' => 'smallint',
-            'category_id' => 'integer not null',
+            'category_id' => 'integer',
+            'categories' => 'string',
             'created_at' => 'integer not null',
             'updated_at' => 'integer not null',
         ])->execute();

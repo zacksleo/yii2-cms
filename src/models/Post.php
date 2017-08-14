@@ -17,6 +17,8 @@ use yii\behaviors\TimestampBehavior;
  * @property integer $visits
  * @property integer $created_at
  * @property integer $updated_at
+ * @property string $category_id
+ * @property string $categories
  */
 class Post extends \yii\db\ActiveRecord
 {
@@ -36,8 +38,8 @@ class Post extends \yii\db\ActiveRecord
         return [
             [['title', 'content', 'active'], 'required'],
             [['content'], 'string'],
-            [['active', 'visits', 'created_at', 'updated_at'], 'integer'],
-            [['title', 'image', 'source'], 'string', 'max' => 255],
+            [['active', 'visits', 'created_at', 'updated_at', 'category_id'], 'integer'],
+            [['title', 'image', 'source', 'categories'], 'string', 'max' => 255],
         ];
     }
 
