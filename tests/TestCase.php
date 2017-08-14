@@ -163,7 +163,30 @@ class TestCase extends \PHPUnit\Framework\TestCase
             'category_id' => 'integer not null',
             'created_at' => 'integer not null',
             'updated_at' => 'integer not null',
-        ]);
+        ])->execute();
+        $db->createCommand()->createTable('post_category', [
+            'id' => 'pk',
+            'root' => 'integer',
+            'lft' => 'integer not null',
+            'rgt' => 'integer not null',
+            'lvl' => 'smallint not null',
+            'name' => 'string(60) not null',
+            'icon' => 'string(255)',
+            'icon_type' => 'smallint not null default 1',
+            'active' => 'boolean not null default true',
+            'selected' => 'boolean not null default false',
+            'disabled' => 'boolean not null default false',
+            'readonly' => 'boolean not null default false',
+            'visible' => 'boolean not null default true',
+            'collapsed' => 'boolean not null default false',
+            'movable_u' => 'boolean not null default true',
+            'movable_d' => 'boolean not null default true',
+            'movable_l' => 'boolean not null default true',
+            'movable_r' => 'boolean not null default true',
+            'removable' => 'boolean not null default true',
+            'removable_all' => 'boolean not null default false',
+            'slug' => 'string not null',
+        ])->execute();
         // Data :
 
         $db->createCommand()->batchInsert('menu', [
