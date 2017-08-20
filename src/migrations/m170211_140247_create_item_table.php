@@ -14,7 +14,7 @@ class m170211_140247_create_item_table extends \yii\db\Migration
             'id' => Schema::TYPE_PK,
             'item_name' => Schema::TYPE_STRING . '(125) NOT NULL COMMENT "商品名称"',
             "subtitle" => Schema::TYPE_STRING . '(125) NOT NULL COMMENT "副标题"',
-            'category_id' => Schema::TYPE_INTEGER . ' NOT NULL COMMENT "商品类别"',
+            'categories' => Schema::TYPE_STRING . ' NOT NULL COMMENT "商品类别"',
             'market_price' => Schema::TYPE_DECIMAL . '(10,2) NOT NULL DEFAULT 0 COMMENT "市场价"',
             'price' => Schema::TYPE_INTEGER . ' NOT NULL DEFAULT 0 COMMENT "价格"',
             'description' => Schema::TYPE_TEXT . ' NOT NULL COMMENT "商品属性"',

@@ -1,11 +1,12 @@
 <?php
 
 use yii\helpers\Html;
-use yii\helpers\ArrayHelper;
+use kartik\tree\TreeViewInput;
 use yii\widgets\ActiveForm;
 use zacksleo\yii2\cms\models\ItemCategory;
 use vova07\imperavi\Widget as Imperavi;
 use yii\helpers\Url;
+use zacksleo\yii2\cms\models\Item;
 
 $module = Yii::$app->getModule('pages');
 
@@ -49,8 +50,20 @@ if ($module->uploadFile) {
 
     <?= $form->field($model, 'subtitle')->textInput(['maxlength' => true]) ?>
 
-    <?= $form->field($model, 'category_id')->dropDownList(ArrayHelper::map(ItemCategory::find()->all(), 'id',
-        'name')) ?>
+    <?= TreeViewInput::widget([
+        'query' => ItemCategory::find()->addOrderBy('root, lft'),
+        'headingOptions' => ['label' => '类别'],
+        'name' => $model->formName() . '[categories]',    // input name
+        'value' => $model->categories,
+        'asDropdown' => true,            // will render the tree input widget as a dropdown.
+        'multiple' => true,            // set to false if you do not need multiple selection
+        'fontAwesome' => true,            // render font awesome icons
+        'rootOptions' => [
+            'label' => '<i class="fa fa-tree"></i>',
+            'class' => 'text-success'
+        ],                                      // custom root label
+    ]);
+    ?>
 
     <?= $form->field($model, 'market_price')->textInput(['maxlength' => true]) ?>
 

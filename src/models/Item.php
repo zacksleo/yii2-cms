@@ -11,7 +11,7 @@ use yii\helpers\Url;
  *
  * @property integer $id
  * @property string $item_name
- * @property integer $category_id
+ * @property string $categories
  * @property string $market_price
  * @property integer $price
  * @property string $description
@@ -41,10 +41,10 @@ class Item extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['item_name', 'subtitle', 'category_id', 'description'], 'required'],
-            [['category_id', 'price', 'status', 'created_at', 'updated_at'], 'integer'],
+            [['item_name', 'subtitle', 'categories', 'description'], 'required'],
+            [['price', 'status', 'created_at', 'updated_at'], 'integer'],
             [['market_price'], 'number'],
-            [['description'], 'string'],
+            [['description', 'categories'], 'string'],
             [['item_name', 'logo_image', 'subtitle'], 'string', 'max' => 125],
         ];
     }
@@ -58,7 +58,7 @@ class Item extends \yii\db\ActiveRecord
             'id' => 'ID',
             'item_name' => '商品名称',
             'subtitle' => '副标题',
-            'category_id' => '商品类别',
+            'categories' => '商品类别',
             'market_price' => '市场价',
             'price' => '价格',
             'description' => '简介',
@@ -89,11 +89,36 @@ class Item extends \yii\db\ActiveRecord
         return Url::to(['item/view', 'id' => $this->id]);
     }
 
+    /**
+     * @return ItemCategory
+     */
     public function getItemCategory()
     {
-        return $this->hasOne(ItemCategory::className(), [
-            'id' => 'category_id'
-        ]);
+        $category_id = array_shift(explode(',', $this->categories));
+        return ItemCategory::findOne($category_id);
+    }
+
+    /**
+     * @return array
+     */
+    public function getItemCategories()
+    {
+        $ids = explode(',', $this->categories);
+        $res = [];
+        foreach ($ids as $id) {
+            $res[] = ItemCategory::findOne($id);
+        }
+        return $res;
+    }
+
+    public function getItemCategoriesName()
+    {
+        $categories = $this->getItemCategories();
+        $labels = [];
+        foreach ($categories as $category) {
+            $labels[] = $category->name;
+        }
+        return implode(',', $labels);
     }
 
     public static function getStatusList()

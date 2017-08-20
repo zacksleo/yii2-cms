@@ -31,7 +31,12 @@ $this->registerCss('td img{max-width:640px;display:block;}');
         'model' => $model,
         'attributes' => [
             'item_name',
-            'itemCategory.name',
+            [
+                'attribute' => 'categories',
+                'value' => function ($model) {
+                    return $model->getItemCategoriesName();
+                }
+            ],
             'market_price',
             'price',
             'description:html',

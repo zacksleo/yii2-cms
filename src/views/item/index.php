@@ -20,10 +20,8 @@ $this->params['breadcrumbs'][] = $this->title;
         'dataProvider' => $dataProvider,
         'columns' => [
             ['class' => 'yii\grid\SerialColumn'],
-
-            'id',
             'item_name',
-            'category_id',
+            'itemCategory.name',
             'market_price',
             'price',
             // 'description:ntext',
