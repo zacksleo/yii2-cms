@@ -116,7 +116,7 @@ class TestCase extends \PHPUnit\Framework\TestCase
             'type' => 'string not null',
             'key' => 'string not null',
             'value' => 'text',
-        ]);
+        ])->execute();
         $db->createCommand()->createTable('item_category', [
             'id' => 'pk',
             'root' => 'integer',
@@ -258,7 +258,7 @@ class TestCase extends \PHPUnit\Framework\TestCase
                 'lvl' => 0,
                 'name' => '零食'
             ],
-        ]);
+        ])->execute();
         $db->createCommand()->batchInsert('item', [
             'id',
             'item_name',
@@ -275,7 +275,7 @@ class TestCase extends \PHPUnit\Framework\TestCase
                 'description' => '法国生蚝',
                 'logo_image' => 'logo.png',
             ],
-        ]);
+        ])->execute();
     }
 
     /**
