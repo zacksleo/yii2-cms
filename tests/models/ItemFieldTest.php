@@ -10,7 +10,7 @@ class ItemFieldTest extends TestCase
     public function testSave()
     {
         $model = new Product();
-        $model->item_id = 2;
+        $model->item_id = 1;
         $model->freight = 23;
         $model->sales = 999;
         $this->assertTrue($model->save());
