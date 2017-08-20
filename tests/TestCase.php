@@ -240,7 +240,7 @@ class TestCase extends \PHPUnit\Framework\TestCase
                 'lft' => 1,
                 'rgt' => 4,
                 'lvl' => 0,
-                'name' => '日用品'
+                'name' => 'necessary'
             ],
             [
                 'id' => 2,
@@ -248,7 +248,7 @@ class TestCase extends \PHPUnit\Framework\TestCase
                 'lft' => 1,
                 'rgt' => 4,
                 'lvl' => 0,
-                'name' => '烟酒'
+                'name' => 'beer'
             ],
             [
                 'id' => 3,
@@ -256,7 +256,7 @@ class TestCase extends \PHPUnit\Framework\TestCase
                 'lft' => 1,
                 'rgt' => 4,
                 'lvl' => 0,
-                'name' => '零食'
+                'name' => 'food'
             ],
         ])->execute();
         $db->createCommand()->batchInsert('item', [
@@ -266,14 +266,18 @@ class TestCase extends \PHPUnit\Framework\TestCase
             'categories',
             'description',
             'logo_image',
+            'created_at',
+            'updated_at'
         ], [
             [
                 'id' => 1,
-                'item_name' => '法国生蚝',
-                'subtitle' => '法国生蚝',
+                'item_name' => 'goods',
+                'subtitle' => 'goods',
                 'categories' => '1,2,3',
-                'description' => '法国生蚝',
+                'description' => 'goods',
                 'logo_image' => 'logo.png',
+                'created_at' => time(),
+                'updated_at' => time(),
             ],
         ])->execute();
     }
