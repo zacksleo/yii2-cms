@@ -94,7 +94,8 @@ class Item extends \yii\db\ActiveRecord
      */
     public function getItemCategory()
     {
-        $category_id = array_shift(explode(',', $this->categories));
+        $ids = explode(',', $this->categories);
+        $category_id = array_shift($ids);
         return ItemCategory::findOne($category_id);
     }
 

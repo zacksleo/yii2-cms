@@ -112,7 +112,7 @@ class TestCase extends \PHPUnit\Framework\TestCase
             'updated_at' => 'integer not null',
         ])->execute();
         $db->createCommand()->createTable('item_field', [
-            'item_id' => 'pk',
+            'item_id' => 'integer pk',
             'type' => 'string not null',
             'key' => 'string not null',
             'value' => 'text',

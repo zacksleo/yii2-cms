@@ -42,7 +42,7 @@ class ItemTest extends TestCase
     {
         $model = Item::findOne(1);
         $name = $model->getItemCategoriesName();
-        $this->assertInstanceOf('string', $name);
+        $this->assertInternalType('string',$name);
     }
 
     public function testGetStatusList()
