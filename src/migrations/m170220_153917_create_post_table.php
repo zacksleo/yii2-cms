@@ -24,7 +24,8 @@ class m170220_153917_create_post_table extends Migration
             'active' => $this->boolean()->notNull(),
             'source' => $this->string(),
             'visits' => $this->smallInteger(),
-            'category_id' => $this->integer()->notNull(),
+            'category_id' => $this->integer(),
+            'categories' => $this->string(),
             'created_at' => $this->integer()->notNull(),
             'updated_at' => $this->integer()->notNull(),
         ], $tableOptions);

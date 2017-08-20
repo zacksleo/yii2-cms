@@ -1,4 +1,5 @@
 <?php
+
 namespace zacksleo\yii2\cms\models;
 
 use kartik\tree\models\Tree;
@@ -27,6 +28,7 @@ use zacksleo\yii2\cms\Module;
  * @property integer $movable_r
  * @property integer $removable
  * @property integer $removable_all
+ * @property string $slug
  */
 class PostCategory extends Tree
 {
@@ -69,7 +71,7 @@ class PostCategory extends Tree
                 'integer'
             ],
             [['lft', 'rgt', 'lvl', 'name'], 'required'],
-            [['name'], 'string', 'max' => 60],
+            [['name', 'slug'], 'string', 'max' => 60],
             [['icon'], 'string', 'max' => 255],
 
         ];
