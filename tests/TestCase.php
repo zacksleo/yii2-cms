@@ -102,7 +102,7 @@ class TestCase extends \PHPUnit\Framework\TestCase
             'id' => 'pk',
             'item_name' => 'string(125) not null',
             'subtitle' => 'string(125) not null',
-            'category_id' => 'integer not null',
+            'categories' => 'string not null',
             'market_price' => 'decimal(10,2) not null default 0',
             'price' => 'integer not null default 0',
             'description' => 'text not null',
@@ -111,6 +111,12 @@ class TestCase extends \PHPUnit\Framework\TestCase
             'created_at' => 'integer not null',
             'updated_at' => 'integer not null',
         ])->execute();
+        $db->createCommand()->createTable('item_field', [
+            'item_id' => 'pk',
+            'type' => 'string not null',
+            'key' => 'string not null',
+            'value' => 'text',
+        ]);
         $db->createCommand()->createTable('item_category', [
             'id' => 'pk',
             'root' => 'integer',
@@ -186,12 +192,16 @@ class TestCase extends \PHPUnit\Framework\TestCase
             'movable_r' => 'boolean not null default true',
             'removable' => 'boolean not null default true',
             'removable_all' => 'boolean not null default false',
-            'slug' => 'string not null',
+            'slug' => 'string default 1 not null',
         ])->execute();
         // Data :
 
         $db->createCommand()->batchInsert('menu', [
-            'id', 'title', 'order', 'parent', 'url',
+            'id',
+            'title',
+            'order',
+            'parent',
+            'url',
         ], [
             [
                 'id' => 1,
@@ -206,7 +216,8 @@ class TestCase extends \PHPUnit\Framework\TestCase
                 'order' => 1,
                 'parent' => 1,
                 'url' => 'https://lianluo.com',
-            ], [
+            ],
+            [
                 'id' => 3,
                 'title' => 'catalog2',
                 'order' => 2,
@@ -214,6 +225,57 @@ class TestCase extends \PHPUnit\Framework\TestCase
                 'url' => 'https://lianluo.com',
             ],
         ])->execute();
+
+        $db->createCommand()->batchInsert('item_category', [
+            'id',
+            'root',
+            'lft',
+            'rgt',
+            'lvl',
+            'name',
+        ], [
+            [
+                'id' => 1,
+                'root' => 1,
+                'lft' => 1,
+                'rgt' => 4,
+                'lvl' => 0,
+                'name' => '日用品'
+            ],
+            [
+                'id' => 2,
+                'root' => 2,
+                'lft' => 1,
+                'rgt' => 4,
+                'lvl' => 0,
+                'name' => '烟酒'
+            ],
+            [
+                'id' => 3,
+                'root' => 3,
+                'lft' => 1,
+                'rgt' => 4,
+                'lvl' => 0,
+                'name' => '零食'
+            ],
+        ]);
+        $db->createCommand()->batchInsert('item', [
+            'id',
+            'item_name',
+            'subtitle',
+            'categories',
+            'description',
+            'logo_image',
+        ], [
+            [
+                'id' => 1,
+                'item_name' => '法国生蚝',
+                'subtitle' => '法国生蚝',
+                'categories' => '1,2,3',
+                'description' => '法国生蚝',
+                'logo_image' => 'logo.png',
+            ],
+        ]);
     }
 
     /**

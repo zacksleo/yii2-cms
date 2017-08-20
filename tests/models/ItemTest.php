@@ -12,13 +12,42 @@ class ItemTest extends TestCase
         $model = new Item();
         $this->assertTrue($model->isAttributeRequired('item_name'));
         $this->assertTrue($model->isAttributeRequired('subtitle'));
-        $this->assertTrue($model->isAttributeRequired('category_id'));
+        $this->assertTrue($model->isAttributeRequired('categories'));
         $this->assertTrue($model->isAttributeRequired('description'));
         $model->item_name = 'item_name';
         $model->subtitle = 'subtitle';
-        $model->category_id = '1';
+        $model->categories = '1,2,3';
         $model->description = 'description';
         $model->logo_image = 'logo image';
         $this->assertTrue($model->save());
+    }
+
+    public function testGetItemCategory()
+    {
+        $model = Item::findOne(1);
+        $category = $model->getItemCategory();
+        $this->assertInstanceOf('zacksleo\yii2\cms\models\ItemCategory', $category);
+    }
+
+    public function testGetItemCategories()
+    {
+        $model = Item::findOne(1);
+        $categories = $model->getItemCategories();
+        foreach ($categories as $category) {
+            $this->assertInstanceOf('zacksleo\yii2\cms\models\ItemCategory', $category);
+        }
+    }
+
+    public function testGetItemCategoriesName()
+    {
+        $model = Item::findOne(1);
+        $name = $model->getItemCategoriesName();
+        $this->assertInstanceOf('string', $name);
+    }
+
+    public function testGetStatusList()
+    {
+        $list = Item::getStatusList();
+        $this->assertSame(2, count($list));
     }
 }
