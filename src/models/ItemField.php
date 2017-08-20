@@ -6,7 +6,7 @@ use yii\db\ActiveRecord;
 use yii\helpers\ArrayHelper;
 use yii\helpers\Json;
 use yii\base\DynamicModel;
-use pheme\settings\Module;
+use zacksleo\yii2\cms\Module;
 use yii\base\InvalidParamException;
 
 /**
