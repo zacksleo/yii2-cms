@@ -10,7 +10,7 @@ class ItemFieldTest extends TestCase
     public function testSave()
     {
         $model = new Product();
-        $model->item_id = 1;
+        $model->item_id = 2;
         $model->freight = 23;
         $model->sales = 999;
         $this->assertTrue($model->save());
@@ -21,7 +21,6 @@ class ItemFieldTest extends TestCase
         $model = Product::findOne(1);
         $this->assertArrayHasKey('freight', $model->toArray());
         $this->assertArrayHasKey('sales', $model->toArray());
-        $this->assertArrayHasKey('item_id', $model->toArray());
     }
 
     public function testDelete()
