@@ -60,7 +60,11 @@ if ($module->uploadFile) {
         'settings' => $settings,
     ]); ?>
 
-    <?= $form->field($model, 'status')->textInput() ?>
+    <?= $form->field($model, 'status')->textInput()->radioList(
+        Item::getStatusList(), [
+            'default' => 1
+        ]
+    ) ?>
 
     <div class="form-group">
         <?= Html::submitButton($model->isNewRecord ? 'Create' : 'Update',

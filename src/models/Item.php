@@ -24,6 +24,9 @@ use yii\helpers\Url;
  */
 class Item extends \yii\db\ActiveRecord
 {
+    const STATUS_ACTIVE = 1;
+    const STATUS_INACTIVE = 0;
+
     /**
      * @inheritdoc
      */
@@ -58,7 +61,7 @@ class Item extends \yii\db\ActiveRecord
             'category_id' => '商品类别',
             'market_price' => '市场价',
             'price' => '价格',
-            'description' => '商品属性',
+            'description' => '简介',
             'status' => '状态',
             'created_at' => '创建时间',
             'updated_at' => '更新时间',
@@ -91,5 +94,13 @@ class Item extends \yii\db\ActiveRecord
         return $this->hasOne(ItemCategory::className(), [
             'id' => 'category_id'
         ]);
+    }
+
+    public static function getStatusList()
+    {
+        return [
+            self::STATUS_INACTIVE => '下线',
+            self::STATUS_ACTIVE => '上线',
+        ];
     }
 }

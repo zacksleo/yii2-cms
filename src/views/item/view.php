@@ -2,6 +2,7 @@
 
 use yii\helpers\Html;
 use yii\widgets\DetailView;
+use zacksleo\yii2\cms\models\Item;
 
 /* @var $this yii\web\View */
 /* @var $model app\models\Item */
@@ -34,7 +35,12 @@ $this->registerCss('td img{max-width:640px;display:block;}');
             'market_price',
             'price',
             'description:html',
-            'status',
+            [
+                'attribute' => 'status',
+                'value' => function ($model) {
+                    return Item::getStatusList()[$model->status];
+                }
+            ],
             'created_at:datetime',
             'updated_at:datetime',
         ],
