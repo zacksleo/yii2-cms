@@ -6,6 +6,8 @@
 ![](https://styleci.io/repos/81707082/shield?branch=master)
 ![](https://api.travis-ci.org/zacksleo/yii2-cms.svg?branch=master)
 [![Code Climate](https://img.shields.io/codeclimate/github/zacksleo/yii2-cms.svg)]()
+[![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/zacksleo/yii2-cms/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/zacksleo/yii2-cms/?branch=master)
+[![Code Coverage](https://scrutinizer-ci.com/g/zacksleo/yii2-cms/badges/coverage.png?b=master)](https://scrutinizer-ci.com/g/zacksleo/yii2-cms/?branch=master)
 
 ## Quick Start
 
