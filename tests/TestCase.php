@@ -72,8 +72,8 @@ class TestCase extends \PHPUnit\Framework\TestCase
                 ],
                 'attachments' => [
                     'class' => \nemmo\attachments\Module::className(),
-                    'tempPath' => '@frontend/uploads/temp',
-                    'storePath' => '@frontend/web/uploads/store',
+                    'tempPath' => '@tests/data/uploads/temp',
+                    'storePath' => '@tests/data/uploads/store',
                     'rules' => [ // Rules according to the FileValidator
                         'maxFiles' => 5, // Allow to upload maximum 3 files, default to 3
                         //'mimeTypes' => 'image/png, image/jpg', // Only png images
