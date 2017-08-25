@@ -71,7 +71,7 @@ class TestCase extends \PHPUnit\Framework\TestCase
                     'class' => '\kartik\tree\Module',
                 ],
                 'attachments' => [
-                    'class' => nemmo\attachments\Module::className(),
+                    'class' => \nemmo\attachments\Module::className(),
                     'tempPath' => '@frontend/uploads/temp',
                     'storePath' => '@frontend/web/uploads/store',
                     'rules' => [ // Rules according to the FileValidator
