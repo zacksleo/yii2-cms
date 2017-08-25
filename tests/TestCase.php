@@ -69,6 +69,18 @@ class TestCase extends \PHPUnit\Framework\TestCase
                 ],
                 'treemanager' => [
                     'class' => '\kartik\tree\Module',
+                ],
+                'attachments' => [
+                    'class' => nemmo\attachments\Module::className(),
+                    'tempPath' => '@frontend/uploads/temp',
+                    'storePath' => '@frontend/web/uploads/store',
+                    'rules' => [ // Rules according to the FileValidator
+                        'maxFiles' => 5, // Allow to upload maximum 3 files, default to 3
+                        //'mimeTypes' => 'image/png, image/jpg', // Only png images
+                        'extensions' => ['png', 'jpg', 'gif'],
+                        'maxSize' => 600 * 1024 // 1 MB
+                    ],
+                    'tableName' => '{{%attachments}}' // Optional, default to 'attach_file'
                 ]
             ],
         ], $config));
@@ -193,6 +205,16 @@ class TestCase extends \PHPUnit\Framework\TestCase
             'removable' => 'boolean not null default true',
             'removable_all' => 'boolean not null default false',
             'slug' => 'string default 1 not null',
+        ])->execute();
+        $db->createCommand()->createTable('attachments', [
+            'id' => 'pk',
+            'name' => 'string not null',
+            'model' => 'string not null',
+            'itemId' => 'integer not null',
+            'hash' => 'string not null',
+            'size' => 'integer not null',
+            'type' => 'string not null',
+            'mime' => 'string not null',
         ])->execute();
         // Data :
 
