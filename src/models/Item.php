@@ -78,6 +78,9 @@ class Item extends \yii\db\ActiveRecord
             'timestamp' => [
                 'class' => TimestampBehavior::className(),
             ],
+            'fileBehavior' => [
+                'class' => \nemmo\attachments\behaviors\FileBehavior::className()
+            ]
         ];
     }
 
