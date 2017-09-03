@@ -2,6 +2,7 @@
 
 namespace zacksleo\yii2\cms\models;
 
+use nemmo\attachments\models\File;
 use Yii;
 use yii\behaviors\TimestampBehavior;
 use yii\helpers\Url;
@@ -131,5 +132,13 @@ class Item extends \yii\db\ActiveRecord
             self::STATUS_INACTIVE => '下线',
             self::STATUS_ACTIVE => '上线',
         ];
+    }
+
+    public function getImage()
+    {
+        if ($this->files && $this->files[0] instanceof File) {
+            return $this->files[0]->getUrl();
+        }
+        return 'https://ws1.sinaimg.cn/large/a76d6e45gy1fj5d3ckxgej205x05vaa4.jpg';
     }
 }
