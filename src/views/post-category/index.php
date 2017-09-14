@@ -2,7 +2,7 @@
 use zacksleo\yii2\cms\models\PostCategory;
 
 Yii::$app->getModule('treemanager')->treeViewSettings = [
-    'nodeView' => '@vendor/zacksleo/yii2-cms/views/post-category/_form'
+    'nodeView' => '@vendor/zacksleo/yii2-cms/src/views/post-category/_form'
 ];
 Yii::$app->getModule('treemanager')->init();
 
