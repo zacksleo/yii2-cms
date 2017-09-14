@@ -28,4 +28,12 @@ return [
 
     'Please select correct type' => '请选择正确的类型',
     'Successfully saved settings' => '保存成功',
+
+    'Image' => '图片',
+    'Content' => '内容',
+    'Active' => '激活',
+    'Source' => '文章来源',
+    'Category Id' => '文章分类',
+    'Categories' => '类别',
+    'Visits' => '访问量',
 ];

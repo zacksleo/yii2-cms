@@ -4,6 +4,7 @@ namespace zacksleo\yii2\cms\models;
 
 use Yii;
 use yii\behaviors\TimestampBehavior;
+use zacksleo\yii2\cms\Module;
 
 /**
  * This is the model class for table "{{%news}}".
@@ -49,15 +50,17 @@ class Post extends \yii\db\ActiveRecord
     public function attributeLabels()
     {
         return [
-            'id' => Yii::t('cms', 'ID'),
-            'title' => Yii::t('cms', 'Title'),
-            'image' => Yii::t('cms', 'Image'),
-            'content' => Yii::t('cms', 'Content'),
-            'active' => Yii::t('cms', 'Active'),
-            'source' => Yii::t('cms', 'Source'),
-            'visits' => Yii::t('cms', 'Visits'),
-            'created_at' => Yii::t('cms', 'Created At'),
-            'updated_at' => Yii::t('cms', 'Updated At'),
+            'id' => Module::t('cms', 'ID'),
+            'title' => Module::t('cms', 'Title'),
+            'image' => Module::t('cms', 'Image'),
+            'content' => Module::t('cms', 'Content'),
+            'active' => Module::t('cms', 'Active'),
+            'source' => Module::t('cms', 'Source'),
+            'visits' => Module::t('cms', 'Visits'),
+            'category_id' => Module::t('cms', 'Category Id'),
+            'categories' => Module::t('cms', 'Categories'),
+            'created_at' => Module::t('cms', 'Created At'),
+            'updated_at' => Module::t('cms', 'Updated At'),
         ];
     }
 
