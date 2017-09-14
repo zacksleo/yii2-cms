@@ -14,21 +14,21 @@ use yii\helpers\Html;
 use yii\web\View;
 
 /**
- * @var View       $this
- * @var Tree       $node
+ * @var View $this
+ * @var Tree $node
  * @var ActiveForm $form
- * @var string     $keyAttribute
- * @var string     $nameAttribute
- * @var string     $iconAttribute
- * @var string     $iconTypeAttribute
- * @var string     $iconsList
- * @var string     $action
- * @var array      $breadcrumbs
- * @var array      $nodeAddlViews
- * @var mixed      $currUrl
- * @var bool       $showIDAttribute
- * @var bool       $showFormButtons
- * @var string     $nodeSelected
+ * @var string $keyAttribute
+ * @var string $nameAttribute
+ * @var string $iconAttribute
+ * @var string $iconTypeAttribute
+ * @var string $iconsList
+ * @var string $action
+ * @var array $breadcrumbs
+ * @var array $nodeAddlViews
+ * @var mixed $currUrl
+ * @var bool $showIDAttribute
+ * @var bool $showFormButtons
+ * @var string $nodeSelected
  */
 ?>
 
@@ -74,7 +74,7 @@ $glue = ArrayHelper::getValue($breadcrumbs, 'glue');
 $activeCss = ArrayHelper::getValue($breadcrumbs, 'activeCss');
 $untitled = ArrayHelper::getValue($breadcrumbs, 'untitled');
 $name = $node->getBreadcrumbs($depth, $glue, $activeCss, $untitled);
-if ($node->isNewRecord && !empty($parentKey) && $parentKey !== 'root') {
+if ($node->isNewRecord && !empty($parentKey) && $parentKey !== TreeView::ROOT_KEY) {
     /**
      * @var Tree $modelClass
      * @var Tree $parent
@@ -193,6 +193,9 @@ echo $renderContent(Module::VIEW_PART_1);
             <div class="col-sm-8">
                 <?= $form->field($node, $nameAttribute)->textInput($inputOpts) ?>
             </div>
+            <div class="col-sm-4">
+                <?= $form->field($node, 'slug')->textInput($inputOpts) ?>
+            </div>
         </div>
     <?php else: ?>
         <?= $keyField ?>
@@ -216,10 +219,10 @@ echo $renderContent(Module::VIEW_PART_1);
                         $value = '';
                     }
                     return '<div class="radio">' . Html::radio($name, $checked, [
-                        'value' => $value,
-                        'label' => $label,
-                        'disabled' => !empty($inputOpts['readonly']) || !empty($inputOpts['disabled'])
-                    ]) . '</div>';
+                            'value' => $value,
+                            'label' => $label,
+                            'disabled' => !empty($inputOpts['readonly']) || !empty($inputOpts['disabled'])
+                        ]) . '</div>';
                 },
                 'selector' => 'radio',
             ]) ?>

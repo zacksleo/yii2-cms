@@ -103,6 +103,7 @@ class PostCategory extends Tree
             'movable_r' => Module::t('tree', 'Movable To The Right'),
             'removable' => Module::t('tree', 'Removable'),
             'removable_all' => Module::t('tree', 'Removable Along With Descendants'),
+            'slug' => '英文别名'
         ];
     }
 }
