@@ -2,15 +2,16 @@
 
 use yii\helpers\Html;
 use yii\widgets\DetailView;
+use zacksleo\yii2\cms\models\Page;
 
 /* @var $this yii\web\View */
-/* @var $model zacksleo\yii2\cms\models\Post */
+/* @var $model zacksleo\yii2\cms\models\Page */
 
 $this->title = $model->title;
-$this->params['breadcrumbs'][] = ['label' => 'Posts', 'url' => ['index']];
+$this->params['breadcrumbs'][] = ['label' => 'Pages', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
-<div class="post-view">
+<div class="page-view">
 
     <p>
         <?= Html::a('修改', ['update', 'id' => $model->id], ['class' => 'btn btn-primary']) ?>
@@ -27,15 +28,16 @@ $this->params['breadcrumbs'][] = $this->title;
         'model' => $model,
         'attributes' => [
             'title',
-            'image',
+            'slug',
+            [
+                'attribute' => 'status',
+                'value' => function ($model) {
+                    return Page::getStatusList()[$model->status];
+                }
+            ],
             'content:html',
-            'active:boolean',
-            'source',
-            'visits',
-            'category_id',
-            'categories',
-            'created_at:datetime',
-            'updated_at:datetime',
+            'created_at:date',
+            'updated_at:date',
         ],
     ]) ?>
 

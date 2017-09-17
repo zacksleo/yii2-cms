@@ -5,6 +5,8 @@ namespace zacksleo\yii2\cms\models;
 use Yii;
 use yii\behaviors\TimestampBehavior;
 use zacksleo\yii2\cms\Module;
+use creocoder\taggable\TaggableBehavior;
+use yii\helpers\Url;
 
 /**
  * This is the model class for table "{{%news}}".
@@ -23,6 +25,9 @@ use zacksleo\yii2\cms\Module;
  */
 class Post extends \yii\db\ActiveRecord
 {
+    const STATUS_INACTIVE = 0;
+    const STATUS_ACTIVE = 1;
+
     /**
      * @inheritdoc
      */
@@ -41,6 +46,7 @@ class Post extends \yii\db\ActiveRecord
             [['content'], 'string'],
             [['active', 'visits', 'created_at', 'updated_at', 'category_id'], 'integer'],
             [['title', 'image', 'source', 'categories'], 'string', 'max' => 255],
+            ['tagValues', 'safe'],
         ];
     }
 
@@ -61,6 +67,7 @@ class Post extends \yii\db\ActiveRecord
             'categories' => Module::t('cms', 'Categories'),
             'created_at' => Module::t('cms', 'Created At'),
             'updated_at' => Module::t('cms', 'Updated At'),
+            'tagValues' => '标签',
         ];
     }
 
@@ -73,6 +80,95 @@ class Post extends \yii\db\ActiveRecord
             'timestamp' => [
                 'class' => TimestampBehavior::className(),
             ],
+            'fileBehavior' => [
+                'class' => \nemmo\attachments\behaviors\FileBehavior::className()
+            ],
+            'taggable' => [
+                'class' => TaggableBehavior::className(),
+                // 'tagValuesAsArray' => false,
+                // 'tagRelation' => 'tags',
+                // 'tagValueAttribute' => 'name',
+                // 'tagFrequencyAttribute' => 'frequency',
+            ],
         ];
+    }
+
+    /**
+     * @return array
+     */
+    public static function getStatusList()
+    {
+        return [
+            self::STATUS_INACTIVE => Module::t('cms', 'InActive'),
+            self::STATUS_ACTIVE => Module::t('cms', 'Active'),
+        ];
+    }
+
+    public function getTags()
+    {
+        return $this->hasMany(Tag::className(), ['id' => 'tag_id'])
+            ->viaTable('{{%post_tag_assn}}', ['post_id' => 'id']);
+    }
+
+    public function transactions()
+    {
+        return [
+            self::SCENARIO_DEFAULT => self::OP_ALL,
+        ];
+    }
+
+    public static function find()
+    {
+        return new PostQuery(get_called_class());
+    }
+
+    /**
+     * @return PostCategory
+     */
+    public function getCategory()
+    {
+        $ids = explode(',', $this->categories);
+        $category_id = array_shift($ids);
+        return PostCategory::findOne($category_id);
+    }
+
+    /**
+     * @return array
+     */
+    public function getCategories()
+    {
+        $ids = explode(',', $this->categories);
+        $res = [];
+        foreach ($ids as $id) {
+            $res[] = PostCategory::findOne($id);
+        }
+        return $res;
+    }
+
+    public function getCategoriesName()
+    {
+        $categories = $this->getCategories();
+        $labels = [];
+        foreach ($categories as $category) {
+            $labels[] = $category->name;
+        }
+        return implode(',', $labels);
+    }
+
+    public function getUrl()
+    {
+        return Url::to(['post/view', 'id' => $this->id]);
+    }
+
+    public function beforeSave($insert)
+    {
+        $this->categories = ',' . trim($this->categories, ',') . ',';
+        return parent::beforeSave($insert);
+    }
+
+    public function afterFind()
+    {
+        $this->categories = trim($this->categories, ',');
+        parent::afterFind();
     }
 }

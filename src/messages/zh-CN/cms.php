@@ -36,4 +36,6 @@ return [
     'Category Id' => '文章分类',
     'Categories' => '类别',
     'Visits' => '访问量',
+    'Active' => '显示',
+    'InActive' => '隐藏',
 ];

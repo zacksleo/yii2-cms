@@ -28,4 +28,14 @@ return [
 
     'Please select correct type' => '請選擇正確的類型',
     'Successfully saved settings' => '保存成功',
+
+    'Image' => '圖片',
+    'Content' => '內容',
+    'Active' => '激活',
+    'Source' => '文章來源',
+    'Category Id' => '文章分類',
+    'Categories' => '類別',
+    'Visits' => '訪問量',
+    'Active' => '顯示',
+    'InActive' => '隱藏',
 ];

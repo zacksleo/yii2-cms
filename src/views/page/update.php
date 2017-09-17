@@ -3,14 +3,14 @@
 use yii\helpers\Html;
 
 /* @var $this yii\web\View */
-/* @var $model zacksleo\yii2\cms\models\Post */
+/* @var $model zacksleo\yii2\cms\models\Page */
 
-$this->title = '更新文章';
-$this->params['breadcrumbs'][] = ['label' => '资讯', 'url' => ['index']];
+$this->title = '修改 ';
+$this->params['breadcrumbs'][] = ['label' => 'Pages', 'url' => ['index']];
 $this->params['breadcrumbs'][] = ['label' => $model->title, 'url' => ['view', 'id' => $model->id]];
 $this->params['breadcrumbs'][] = 'Update';
 ?>
-<div class="post-update">
+<div class="page-update">
 
     <?= $this->render('_form', [
         'model' => $model,

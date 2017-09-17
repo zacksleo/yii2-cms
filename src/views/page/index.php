@@ -6,10 +6,11 @@ use yii\grid\GridView;
 /* @var $this yii\web\View */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
-$this->title = '资讯';
+$this->title = '单页文章';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
-<div class="post-index">
+<div class="page-index">
+
     <p>
         <?= Html::a('添加', ['create'], ['class' => 'btn btn-success']) ?>
     </p>
@@ -18,12 +19,10 @@ $this->params['breadcrumbs'][] = $this->title;
         'columns' => [
             ['class' => 'yii\grid\SerialColumn'],
             'title',
-            'active:boolean',
-            // 'source',
-             'visits',
-            // 'category_id',
-            // 'categories',
-             'created_at:date',
+            'slug',
+            'status',
+            'created_at:date',
+            // 'updated_at',
 
             ['class' => 'yii\grid\ActionColumn'],
         ],
