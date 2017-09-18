@@ -29,6 +29,21 @@ class ItemController extends Controller
         ];
     }
 
+    public function actions()
+    {
+        return [
+            'upload' => [
+                'class' => 'zacksleo\yii2\cms\actions\UEditorAction',
+                'config' => [
+                    //"imageUrlPrefix" => "http://www.baidu.com",//图片访问路径前缀
+                    "imagePathFormat" => "/uploads/{yyyy}{mm}{dd}/{time}{rand:6}",
+                    //上传保存路径
+                    "imageRoot" => Yii::getAlias("@frontend/web"),
+                ],
+            ]
+        ];
+    }
+
     /**
      * Lists all Item models.
      * @return mixed

@@ -4,41 +4,11 @@ use yii\helpers\Html;
 use kartik\tree\TreeViewInput;
 use yii\widgets\ActiveForm;
 use zacksleo\yii2\cms\models\ItemCategory;
-use vova07\imperavi\Widget as Imperavi;
 use yii\helpers\Url;
 use zacksleo\yii2\cms\models\Item;
 
-$module = Yii::$app->getModule('pages');
-
-$settings = [
-    'minHeight' => 200,
-    'plugins' => [
-        'fullscreen',
-    ],
-];
-if ($module->imperaviLanguage) {
-    $settings['lang'] = $module->imperaviLanguage;
-}
-if ($module->addImage || $module->uploadImage) {
-    $settings['plugins'][] = 'imagemanager';
-}
-if ($module->addImage) {
-    $settings['imageManagerJson'] = Url::to(['images-get']);
-}
-if ($module->uploadImage) {
-    $settings['imageUpload'] = Url::to(['image-upload']);
-}
-if ($module->addFile || $module->uploadFile) {
-    $settings['plugins'][] = 'filemanager';
-}
-if ($module->addFile) {
-    $settings['fileManagerJson'] = Url::to(['files-get']);
-}
-if ($module->uploadFile) {
-    $settings['fileUpload'] = Url::to(['file-upload']);
-}
 /* @var $this yii\web\View */
-/* @var $model app\models\Item */
+/* @var $model zacksleo\yii2\cms\models\Item */
 /* @var $form yii\widgets\ActiveForm */
 ?>
 
@@ -69,9 +39,7 @@ if ($module->uploadFile) {
 
     <?= $form->field($model, 'price')->textInput() ?>
 
-    <?php echo $form->field($model, 'description')->widget(Imperavi::className(), [
-        'settings' => $settings,
-    ]); ?>
+    <?= $form->field($model, 'description')->widget('kucha\ueditor\UEditor', []); ?>
 
     <?= $form->field($model, 'status')->textInput()->radioList(
         Item::getStatusList(), [

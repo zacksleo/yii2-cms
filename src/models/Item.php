@@ -6,6 +6,7 @@ use nemmo\attachments\models\File;
 use Yii;
 use yii\behaviors\TimestampBehavior;
 use yii\helpers\Url;
+use zacksleo\yii2\cms\models\queries\ItemQuery;
 
 /**
  * This is the model class for table "{{%item}}".
@@ -140,5 +141,22 @@ class Item extends \yii\db\ActiveRecord
             return $this->files[0]->getUrl();
         }
         return 'https://ws1.sinaimg.cn/large/a76d6e45gy1fj5d3ckxgej205x05vaa4.jpg';
+    }
+
+    public static function find()
+    {
+        return new ItemQuery(get_called_class());
+    }
+
+    public function beforeSave($insert)
+    {
+        $this->categories = ',' . trim($this->categories, ',') . ',';
+        return parent::beforeSave($insert);
+    }
+
+    public function afterFind()
+    {
+        $this->categories = trim($this->categories, ',');
+        parent::afterFind();
     }
 }

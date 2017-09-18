@@ -1,6 +1,6 @@
 <?php
 
-namespace zacksleo\yii2\cms\models;
+namespace zacksleo\yii2\cms\models\queries;
 
 use yii\db\ActiveQuery;
 use creocoder\taggable\TaggableQueryBehavior;

@@ -7,6 +7,7 @@ use yii\behaviors\TimestampBehavior;
 use zacksleo\yii2\cms\Module;
 use creocoder\taggable\TaggableBehavior;
 use yii\helpers\Url;
+use zacksleo\yii2\cms\models\queries\PostQuery;
 
 /**
  * This is the model class for table "{{%news}}".
