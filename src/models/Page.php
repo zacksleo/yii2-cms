@@ -86,4 +86,12 @@ class Page extends \yii\db\ActiveRecord
     {
         return Url::to(['page/view', 'slug' => $this->slug]);
     }
+
+    public function getImage()
+    {
+        if ($this->files && $this->files[0] instanceof File) {
+            return $this->files[0]->getUrl();
+        }
+        return 'https://ws1.sinaimg.cn/large/a76d6e45gy1fj5d3ckxgej205x05vaa4.jpg';
+    }
 }
