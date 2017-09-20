@@ -21,13 +21,15 @@ $this->params['breadcrumbs'][] = $this->title;
         'dataProvider' => $dataProvider,
         'columns' => [
             ['class' => 'yii\grid\SerialColumn'],
-
-            'id',
             'title',
             'order',
-            'parent',
+            [
+                'attribute' => 'parent',
+                'value' => function ($model) {
+                    return $model->parent->title;
+                }
+            ],
             'url:url',
-
             ['class' => 'yii\grid\ActionColumn'],
         ],
     ]); ?>

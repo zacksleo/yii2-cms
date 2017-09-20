@@ -14,6 +14,7 @@ use zacksleo\yii2\cms\Module;
  * @property integer $parent
  * @property string $url
  * @property array $children
+ * @property Menu $parent
  */
 class Menu extends \yii\db\ActiveRecord
 {
@@ -58,5 +59,15 @@ class Menu extends \yii\db\ActiveRecord
     public function getChildren()
     {
         return $this->hasMany(self::className(), ['parent' => 'id'])->orderBy('order');
+    }
+
+    /**
+     * @return \yii\db\ActiveQuery
+     */
+    public function getParent()
+    {
+        return $this->hasOne(self::className(), [
+            'id' => 'parent'
+        ]);
     }
 }
