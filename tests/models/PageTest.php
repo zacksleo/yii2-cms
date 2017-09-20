@@ -22,11 +22,4 @@ class PageTest extends TestCase
         $list = Page::getStatusList();
         $this->assertEquals($list[0], '隐藏');
     }
-
-    public function testGetUrl()
-    {
-        $model = new Page();
-        $model->slug = 'about';
-        $this->assertContains('page/view?slug=about', $model->url);
-    }
 }
