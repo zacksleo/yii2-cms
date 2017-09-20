@@ -308,6 +308,16 @@ class TestCase extends \PHPUnit\Framework\TestCase
             'name' => 'string not null',
             'frequency' => 'integer not null',
         ])->execute();
+
+        $db->createCommand()->createTable('page', [
+            'id' => 'pk',
+            'title' => 'string not null',
+            'slug'=>'string not null',
+            'status' => 'boolean default 1',
+            'content' => 'text not null',
+            'created_at' => 'integer not null',
+            'updated_at' => 'integer not null',
+        ])->execute();
     }
 
     /**
