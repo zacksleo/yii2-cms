@@ -302,6 +302,25 @@ class TestCase extends \PHPUnit\Framework\TestCase
                 'updated_at' => time(),
             ],
         ])->execute();
+
+        $db->createCommand()->createTable('tag', [
+            'id' => 'pk',
+            'name' => 'string not null',
+            'frequency' => 'integer not null',
+        ])->execute();
+        $db->createCommand()->createTable('post', [
+            'id' => 'pk',
+            'title' => 'string not null',
+            'image' => 'string',
+            'content' => 'text not null',
+            'active' => 'boolean not null',
+            'source' => 'string',
+            'visits' => 'integer',
+            'category_id' => 'integer',
+            'categories' => 'string',
+            'created_at' => 'integer not null',
+            'updated_at' => 'integer not null',
+        ])->execute();
     }
 
     /**
