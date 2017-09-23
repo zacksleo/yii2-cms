@@ -33,4 +33,12 @@ class MenuTest extends TestCase
         $this->assertArrayHasKey('title', $model->children[0]);
         $this->assertArrayHasKey('url', $model->children[0]);
     }
+
+    public function testGetFather()
+    {
+        $model = Menu::findOne(2);
+        $this->assertInstanceOf('zacksleo\yii2\cms\models\Menu', $model->father);
+        $this->assertObjectHasAttribute('title', $model->father);
+        $this->assertEquals($model->parent, $model->father->id);
+    }
 }
