@@ -26,7 +26,7 @@ $this->params['breadcrumbs'][] = $this->title;
             [
                 'attribute' => 'parent',
                 'value' => function ($model) {
-                    return $model->parent->title;
+                    return $model->father->title;
                 }
             ],
             'url:url',
