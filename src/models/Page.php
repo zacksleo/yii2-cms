@@ -5,6 +5,7 @@ namespace zacksleo\yii2\cms\models;
 use Yii;
 use yii\behaviors\TimestampBehavior;
 use yii\helpers\Url;
+use nemmo\attachments\models\File;
 
 /**
  * This is the model class for table "{{%page}}".
