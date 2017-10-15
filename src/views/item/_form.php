@@ -10,6 +10,11 @@ use zacksleo\yii2\cms\models\Item;
 /* @var $this yii\web\View */
 /* @var $model zacksleo\yii2\cms\models\Item */
 /* @var $form yii\widgets\ActiveForm */
+
+$css = <<<CSS
+img.file-preview-image{width:100%};
+CSS;
+$this->registerCss($css);
 ?>
 
 <div class="item-form">
@@ -38,6 +43,19 @@ use zacksleo\yii2\cms\models\Item;
     <?= $form->field($model, 'market_price')->textInput(['maxlength' => true]) ?>
 
     <?= $form->field($model, 'price')->textInput() ?>
+
+    <?= \nemmo\attachments\components\AttachmentsInput::widget([
+        'id' => 'file-input', // Optional
+        'model' => $model,
+        'options' => [ // Options of the Kartik's FileInput widget
+            'multiple' => true, // If you want to allow multiple upload, default to false
+        ],
+        'pluginOptions' => [ // Plugin options of the Kartik's FileInput widget
+            'maxFileCount' => 10, // Client max files
+            'resizeImage' => true
+        ]
+    ]) ?>
+
 
     <?= $form->field($model, 'description')->widget('kucha\ueditor\UEditor', []); ?>
 
