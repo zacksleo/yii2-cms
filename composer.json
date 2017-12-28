@@ -11,8 +11,6 @@
   ],
   "minimum-stability": "dev",
   "require": {
-    "pheme/yii2-settings": "dev-master",
-    "spanjeta/yii2-backup": "*",
     "kartik-v/yii2-tree-manager": "^1.0",
     "zacksleo/yii2-lookup": "^1.0",
     "zacksleo/yii2-plugin": "^v2.1",
