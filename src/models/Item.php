@@ -44,8 +44,9 @@ class Item extends \yii\db\ActiveRecord
     {
         return [
             [['item_name', 'subtitle', 'categories', 'description'], 'required'],
-            [['price', 'status', 'created_at', 'updated_at'], 'integer'],
-            [['market_price'], 'number'],
+            [['status', 'created_at', 'updated_at'], 'integer'],
+            ['status', 'default', 'value' => self::STATUS_ACTIVE],
+            [['market_price', 'price'], 'number'],
             [['description', 'categories'], 'string'],
             [['item_name', 'logo_image', 'subtitle'], 'string', 'max' => 125],
         ];
