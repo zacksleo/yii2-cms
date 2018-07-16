@@ -12,13 +12,10 @@
   "minimum-stability": "dev",
   "require": {
     "pheme/yii2-settings": "^0.5",
-    "spanjeta/yii2-backup": "^2.2",
     "kartik-v/yii2-tree-manager": "^1.0",
-    "zacksleo/yii2-lookup": "^1.0",
-    "zacksleo/yii2-plugin": "^v2.1",
-    "dektrium/yii2-user": "^0.9",
     "nemmo/yii2-attachments": "^1.0",
-    "creocoder/yii2-taggable": "^2.0"
+    "creocoder/yii2-taggable": "^2.0",
+    "kucha/ueditor": "^1.21"
   },
   "require-dev": {
     "phpunit/phpunit": "~4.4"
