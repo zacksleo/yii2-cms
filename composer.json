@@ -10,7 +10,7 @@
     }
 ],
   "require": {
-    "pheme/yii2-settings": "^0.5",
+    "pheme/yii2-settings": "^0.6",
     "kartik-v/yii2-tree-manager": "^1.0",
     "nemmo/yii2-attachments": "^1.0.0-beta.3",
     "creocoder/yii2-taggable": "^2.0",
